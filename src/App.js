@@ -15,7 +15,6 @@ const App = () => {
 
   const getMovie = async (searchValue) => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=8ea29288`
-
     const res = await fetch(url)
     const resJson = await res.json()
 
@@ -31,10 +30,11 @@ const App = () => {
   useEffect(() => {
     const localFaves = JSON.parse(localStorage.getItem('fave-movies-app'))
     setFaves(localFaves)
+    console.log(faves)
   }, [])
 
-  const saveToLocalStorage = (items) =>{
-    localStorage.setItem('fave-movies-app',JSON.stringify(items))
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('fave-movies-app', JSON.stringify(items))
   }
 
   const addFave = (movie) => {
